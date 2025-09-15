@@ -6,55 +6,55 @@ const slides = [
   {
     id: "wan",
     title: "WAN 2.2",
-    subtitle:
-      "WAN 2.2 Image generation ",
-      paragraph: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    img: "/assets/wan.jpg",
+    subtitle: "WAN 2.2 Image generation ",
+    paragraph:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    img: "/assets/1.jpg",
     btn: "Try WAN 2.2",
   },
   {
     id: "flux",
     title: "FLUX.1 Krea",
-    subtitle:
-      "FLUX.1 Krea   ",
-            paragraph: "We're making the weights to our FLUX.1 model open-source. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    img: "/flux.jpg",
+    subtitle: "FLUX.1 Krea   ",
+    paragraph:
+      "We're making the weights to our FLUX.1 model open-source. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    img: "/assets/2.jpg",
     btn: "Explore",
   },
   {
     id: "open",
-    title: "Open Source Models",
-    subtitle:
-      "Explore a variety of open-source models curated by the community.",
-            paragraph: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna.",
-    img: "/bottle.jpg",
+    title: "Open Source",
+    subtitle: "Explore a variety of open.",
+    paragraph:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna.",
+    img: "/assets/3.jpg",
     btn: "Discover",
   },
   {
     id: "source1",
-    title: "Open Source Models",
-    subtitle:
-      "Explore a variety of open-source models curated by the community.",
-            paragraph: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    img: "/bottle.jpg",
+    title: "Open Source",
+    subtitle: "Explore a variety of open.",
+    paragraph:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    img: "/assets/4.jpg",
     btn: "Discover",
   },
   {
     id: "source2",
-    title: "Open Source Models",
-    subtitle:
-      "Explore a variety of open-source models curated by the community.",
-            paragraph: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    img: "/bottle.jpg",
+    title: "Open Source",
+    subtitle: "Explore a variety of open.",
+    paragraph:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    img: "/assets/5.jpg",
     btn: "Discover",
   },
   {
     id: "source3",
-    title: "Open Source Models",
-    subtitle:
-      "Explore a variety of open-source models curated by the community.",
-            paragraph: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    img: "/bottle.jpg",
+    title: "Open Source",
+    subtitle: "Explore a variety of open.",
+    paragraph:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    img: "/assets/6.jpg",
     btn: "Discover",
   },
 ];
@@ -99,7 +99,7 @@ export default function HeroCarousel() {
     manualNavigate((index - 1 + slides.length) % slides.length);
 
   return (
-    <div className="w-full flex flex-col items-center mt-10">
+    <div className="w-full flex flex-col items-center mt-10 mb-10">
       {/* scrolling container */}
       <div
         ref={containerRef}
@@ -111,39 +111,38 @@ export default function HeroCarousel() {
             <div
               key={s.id}
               ref={(el) => (slideRefs.current[i] = el)}
-              className="slide relative flex-shrink-0 min-w-[80%] md:min-w-[55%] rounded-4xl overflow-hidden shadow-lg mx-7 bg-cover bg-center h-auto md:h-[700px]"
+              className="slide relative flex-shrink-0 w-[90%] sm:w-[70%] md:w-[60%] lg:w-[800px] rounded-4xl overflow-hidden shadow-lg mx-7 bg-cover bg-center h-[400px] md:h-[600px]"
               style={{ backgroundImage: `url(${s.img})` }}
             >
               {/* overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
 
               {/* content */}
-              <div className="relative z-10 p-6 md:p-12 flex flex-col ml-4  min-h-[240px] h-full">
+              <div className="relative z-10 p-6 md:p-12 flex flex-col justify-between h-full">
                 <motion.h2
                   key={s.title}
                   initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.35 }}
-                  className="text-4xl md:text-8xl font-extrabold text-white tracking-wider drop-shadow-[0_6px_18px_rgba(0,0,0,0.6)] m-auto "
+                  className=" my-auto font-extrabold text-white text-6xl text-center tracking-wider drop-shadow-[0_6px_18px_rgba(0,0,0,0.6)]"
                 >
                   {s.title}
                 </motion.h2>
 
-
-                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-2 w-full">
-                    <div className="flex flex-col">
-                      <h1 className="text-2xl md:text-2xl font-mono text-white/90 font-extrabold">
-                        {s.subtitle}
-                      </h1>
-                      <p className="mt-2 text-sm md:text-base text-white/90 max-w-lg">
-                        {s.paragraph}
-                      </p>
-                    </div>
-
-                    <button className="bg-white text-black font-semibold px-6 py-3 mt-6 rounded-full hover:scale-105 transition drop-shadow-[0_6px_18px_rgba(0,0,0,0.3)] w-fit">
-                      {s.btn}
-                    </button>
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mt-6">
+                  <div className="flex flex-col w-1/2">
+                    <h1 className="text-2xl font-mono text-white/90 font-extrabold">
+                      {s.subtitle}
+                    </h1>
+                    <p className="mt-2 text-sm md:text-base text-white/90 max-w-lg">
+                      {s.paragraph}
+                    </p>
                   </div>
+
+                  <button className="bg-white text-black font-semibold px-6 py-3 rounded-full hover:scale-105 transition drop-shadow-[0_6px_18px_rgba(0,0,0,0.3)] w-fit hover:shadow-lg">
+                    {s.btn}
+                  </button>
+                </div>
               </div>
             </div>
           ))}
@@ -151,7 +150,7 @@ export default function HeroCarousel() {
       </div>
 
       {/* controls */}
-      <div className="flex items-center justify-between w-full max-w-8xl mt-4 px-6">
+      <div className="flex items-center justify-between w-full max-w-8xl px-6">
         <div className="w-1/3 hidden md:block" />
         <div className="flex justify-center gap-3">
           {slides.map((_, i) => (
