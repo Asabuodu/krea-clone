@@ -110,7 +110,11 @@ export default function HeroCarousel() {
           {slides.map((s, i) => (
             <div
               key={s.id}
-              ref={(el) => (slideRefs.current[i] = el)}
+            //   ref={(el) => (slideRefs.current[i] = el)}
+            ref={(el: HTMLDivElement | null) => {
+            slideRefs.current[i] = el;
+            }}
+
               className="slide relative flex-shrink-0 w-[90%] sm:w-[70%] md:w-[60%] lg:w-[800px] rounded-4xl overflow-hidden shadow-lg mx-7 bg-cover bg-center h-[400px] md:h-[600px]"
               style={{ backgroundImage: `url(${s.img})` }}
             >

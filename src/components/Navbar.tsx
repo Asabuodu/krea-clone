@@ -30,12 +30,24 @@ const tools = [
 
 export default function Navbar() {
   const [activeTool, setActiveTool] = useState("house");
-  const [theme, setTheme] = useState<"light" | "dark">("light");
+  const [theme, setTheme] = useState<"light" | "dark" | null>(null);
   const [notifications, setNotifications] = useState<number>(3);
   const [notifOpen, setNotifOpen] = useState(false);
 
-  // Apply theme class to <html>
+  // Load theme from localStorage or system preference
   useEffect(() => {
+    const saved = localStorage.getItem("theme") as "light" | "dark" | null;
+    if (saved) {
+      setTheme(saved);
+    } else {
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      setTheme(prefersDark ? "dark" : "light");
+    }
+  }, []);
+
+  // Apply theme whenever it changes
+  useEffect(() => {
+    if (!theme) return;
     const root = document.documentElement;
     if (theme === "dark") {
       root.classList.add("dark");
@@ -46,13 +58,7 @@ export default function Navbar() {
     }
   }, [theme]);
 
-  // Load theme from storage on mount
-  useEffect(() => {
-    const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null;
-    if (savedTheme) setTheme(savedTheme);
-  }, []);
-
-  // Close notifications when clicking outside
+  // Close notifications on outside click
   useEffect(() => {
     function onDocClick(e: MouseEvent) {
       const target = e.target as HTMLElement | null;
@@ -62,6 +68,9 @@ export default function Navbar() {
     document.addEventListener("click", onDocClick);
     return () => document.removeEventListener("click", onDocClick);
   }, []);
+
+  // Prevent flicker before theme loads
+  if (!theme) return null;
 
   return (
     <nav className="flex flex-col md:flex-row md:items-center md:justify-between px-6 py-3 border-b bg-gradient-to-r from-white via-blue-100 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 gap-4 md:gap-0">
@@ -128,14 +137,12 @@ export default function Navbar() {
             <Bell className="w-5 h-5 dark:text-gray-700 text-gray-200" />
           </button>
 
-          {/* Badge */}
           {notifications > 0 && (
             <span className="absolute top-0 right-0 -translate-y-1 translate-x-1 inline-flex items-center justify-center px-1.5 py-0.5 text-xs font-semibold text-white bg-red-500 rounded-full">
               {notifications}
             </span>
           )}
 
-          {/* Animated dropdown */}
           <AnimatePresence>
             {notifOpen && (
               <motion.div
@@ -162,7 +169,7 @@ export default function Navbar() {
 
         {/* Theme toggle */}
         <button
-          onClick={() => setTheme((t) => (t === "light" ? "dark" : "light"))}
+          onClick={() => setTheme(theme === "light" ? "dark" : "light")}
           className="p-2 rounded-full dark:bg-gray-100 dark:hover:bg-gray-200 bg-gray-700 hover:bg-gray-600"
           aria-label="Toggle theme"
         >
