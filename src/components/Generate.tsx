@@ -59,7 +59,7 @@ const tools = [
   {
     name: "Motion Transfer",
     desc: "Transfer motion styles to images and animate characters.",
-    bg: "bg-black transition-colors duration-300",
+    bg: "bg-black dark:bg-white transition-colors duration-300",
     icon: PersonStanding,
     set: "New",
   },
