@@ -4,15 +4,15 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   Image as ImageIcon,
   Video,
-  Zap,
   Sparkles,
   Scissors,
-  Music,
-  PlayCircle,
   Cpu,
   RefreshCw,
   Bot,
   ChevronDown,
+  PersonStanding,
+  MicVocal,
+  Brush,
 } from "lucide-react";
 
 const tools = [
@@ -20,67 +20,77 @@ const tools = [
     name: "Image",
     desc: "Generate images with custom styles like Flux and Ideogram.",
     icon: ImageIcon, 
-    bg: "bg-blue-100 dark:bg-blue-900",
+    bg: "bg-linear-to-b from-slate-600 to-white transition-colors duration-300",
     set: "New",
   },
   {
     name: "Video",
     desc: "Generate videos with Haiku, Pika, Runway, Lumalabs and more.",
-    bg: "bg-purple-100 dark:bg-purple-900",
+    bg:   "bg-yellow-400 transition-colors duration-300",
     icon: Video,
   },
   {
     name: "Realtime",
     desc: "Realtime AI rendering on a canvas. Trainable feedback loops.",
-    icon: Zap,
+    bg: "bg-cyan-400 transition-colors duration-300",
+    icon: Brush,
   },
   {
     name: "Enhancer",
     desc: "Upscale and enhance images up to 2K/4K.",
+    bg:  "bg-gray-500 transition-colors duration-300",
     icon: Sparkles,
     set: "New",
   },
   {
     name: "Edit",
     desc: "Edit images, swap objects, replace backgrounds and fix details.",
+    bg: "bg-purple-400 transition-colors duration-300",
     icon: Scissors,
     set: "New",
   },
   {
     name: "Video LipSync",
     desc: "Sync any video to any audio with AI lip-sync.",
-    icon: Music,
+    icon: MicVocal,
+    bg: "bg-lime-400 transition-colors duration-300",
     set: "New",
   },
   {
     name: "Motion Transfer",
     desc: "Transfer motion styles to images and animate characters.",
-    icon: PlayCircle,
+    bg: "bg-black transition-colors duration-300",
+    icon: PersonStanding,
     set: "New",
   },
   {
     name: "Train",
     desc: "Teach AI new styles, products, or characters.",
     icon: Cpu,
+    bg: "bg-pink-400 transition-colors duration-300",
   },
   {
     name: "Trash",
     desc: "Clean up messy AI generations automatically.",
+    bg: "bg-red-400 transition-colors duration-300",
     icon: RefreshCw,
   },
   {
     name: "AI Bot",
     desc: "Chat and interact with AI agents in real-time.",
+    bg: "bg-green-400 transition-colors duration-300",
     icon: Bot,
   },
   {
     name: "Trash",
     desc: "Clean up messy AI generations automatically.",
+    bg: "bg-red-400 transition-colors duration-300",
     icon: RefreshCw,
   },
   {
     name: "AI Bot",
     desc: "Chat and interact with AI agents in real-time.",
+    bg: "bg-green-400 transition-colors duration-300",
     icon: Bot,
   },
 ];
@@ -129,8 +139,8 @@ export default function Generate() {
 
                 {/* Left: Icon */}
 
-                  <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${tool.bg}`}>
-                    <Icon className="w-5 h-5 text-gray-700 dark:text-white" />
+                  <div className={`w-12 h-12 rounded-lg flex items-center justify-center ${tool.bg}`}>
+                    <Icon className="w-7 h-7 text-white font-extrabold dark:text-black" />
                   </div>
 
                 {/* Middle: Name + Description */}
@@ -143,7 +153,7 @@ export default function Generate() {
                       </span>
                     )}
                   </div>
-                  <p className="text-xs text-gray-600 dark:text-gray-400 truncate">
+                  <p className="text-xs text-gray-600 dark:text-white">
                     {tool.desc}
                   </p>
                 </div>

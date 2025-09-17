@@ -100,7 +100,7 @@ export default function Navbar() {
               onClick={() => setActiveTool(tool.id)}
               className={`p-2 rounded-md transition ${
                 isActive
-                  ? "bg-black text-white dark:bg-white dark:text-black"
+                  ? "dark:bg-black dark:text-white bg-white text-black"
                   : "text-gray-600 hover:text-black dark:text-gray-300 dark:hover:text-white"
               }`}
               aria-pressed={isActive}
@@ -114,11 +114,11 @@ export default function Navbar() {
 
       {/* Right: Buttons + Notification + Theme toggle + Profile */}
       <div className="flex items-center gap-3 justify-end">
-        <button className="px-4 py-1.5 rounded-md dark:bg-gray-100 dark:hover:bg-gray-200 bg-gray-700 hover:bg-gray-600 flex items-center gap-2 text-sm font-medium dark:text-gray-700 text-gray-200">
+        <button className="px-4 py-1.5 rounded-full bg-gray-100 dark:hover:bg-gray-200 dark:bg-gray-700 hover:bg-gray-600 flex items-center gap-2 text-sm font-medium dark:text-white text-black hover:text-white dark:hover:text-black">
           <GalleryHorizontalEnd className="w-4 h-4" /> Gallery
         </button>
 
-        <button className="px-4 py-1.5 rounded-md dark:bg-gray-100 dark:hover:bg-gray-200 bg-gray-700 hover:bg-gray-600 flex items-center gap-2 text-sm font-medium dark:text-gray-700 text-gray-200">
+        <button className="px-4 py-1.5 rounded-full bg-gray-100 dark:hover:bg-gray-200 dark:bg-gray-700 hover:bg-gray-600 flex items-center gap-2 text-sm font-medium dark:text-white text-black hover:text-white dark:hover:text-black">
           <LifeBuoy className="w-4 h-4" /> Support
         </button>
 
@@ -131,10 +131,10 @@ export default function Navbar() {
               if (notifications > 0) setNotifications(0);
             }}
             aria-label="Notifications"
-            className="p-2 rounded-md dark:bg-gray-100 dark:hover:bg-gray-200 bg-gray-700 hover:bg-gray-600"
+            className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-700"
             title="Notifications"
           >
-            <Bell className="w-5 h-5 dark:text-gray-700 text-gray-200" />
+            <Bell className="w-5 h-5 dark:text-white text-black dark:hover:text-2xl" />
           </button>
 
           {notifications > 0 && (
@@ -170,13 +170,13 @@ export default function Navbar() {
         {/* Theme toggle */}
         <button
           onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-          className="p-2 rounded-full dark:bg-gray-100 dark:hover:bg-gray-200 bg-gray-700 hover:bg-gray-600"
+          className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-700"
           aria-label="Toggle theme"
         >
           {theme === "light" ? (
-            <Moon className="w-5 h-5 dark:text-gray-700 text-gray-200" />
+            <Moon className="w-5 h-5 dark:text-white text-black" />
           ) : (
-            <Sun className="w-5 h-5 dark:text-gray-700 text-gray-200" />
+            <Sun className="w-5 h-5 dark:text-white text-black" />
           )}
         </button>
 

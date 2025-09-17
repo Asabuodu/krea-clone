@@ -115,7 +115,7 @@ export default function HeroCarousel() {
             slideRefs.current[i] = el;
             }}
 
-              className="slide relative flex-shrink-0 w-[90%] sm:w-[70%] md:w-[80%] lg:w-[900px] rounded-4xl overflow-hidden shadow-lg mx-7 bg-cover bg-center h-[400px] md:h-[600px]"
+              className="slide relative flex-shrink-0 w-[90%] sm:w-[70%] md:w-[80%] lg:w-[60%] rounded-4xl overflow-hidden shadow-lg mx-7 bg-cover bg-center h-[480px] md:h-[680px]"
               style={{ backgroundImage: `url(${s.img})` }}
             >
               {/* overlay */}
@@ -128,7 +128,7 @@ export default function HeroCarousel() {
                   initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.35 }}
-                  className=" my-auto font-extrabold text-white text-6xl text-center tracking-wider drop-shadow-[0_6px_18px_rgba(0,0,0,0.6)]"
+                  className=" my-auto font-extrabold text-white text-8xl text-center tracking-wider drop-shadow-[0_6px_18px_rgba(0,0,0,0.6)]"
                 >
                   {s.title}
                 </motion.h2>
