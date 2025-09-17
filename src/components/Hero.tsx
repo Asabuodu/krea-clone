@@ -123,30 +123,39 @@ export default function HeroCarousel() {
 
               {/* content */}
               <div className="relative z-10 p-6 md:p-12 flex flex-col justify-between h-full">
+
                 <motion.h2
                   key={s.title}
                   initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.35 }}
-                  className=" my-auto font-extrabold text-white text-8xl text-center tracking-wider drop-shadow-[0_6px_18px_rgba(0,0,0,0.6)]"
+                  className="my-auto font-extrabold text-white 
+                            text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 
+                            text-center tracking-wider 
+                            drop-shadow-[0_6px_18px_rgba(0,0,0,0.6)]"
                 >
                   {s.title}
                 </motion.h2>
 
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mt-6">
-                  <div className="flex flex-col w-1/2">
-                    <h1 className="text-2xl font-mono text-white/90 font-extrabold">
+                  <div className="flex flex-col md:w-1/2">
+                    <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-mono text-white/90 font-extrabold">
                       {s.subtitle}
                     </h1>
-                    <p className="mt-2 text-sm md:text-base text-white/90 max-w-lg">
+                    <p className="mt-2 text-xs sm:text-sm md:text-base lg:text-lg text-white/90 max-w-lg">
                       {s.paragraph}
                     </p>
                   </div>
 
-                  <button className="bg-white text-black font-semibold px-6 py-3 rounded-full hover:scale-105 transition drop-shadow-[0_6px_18px_rgba(0,0,0,0.3)] w-fit hover:shadow-lg">
+                  <button className="bg-white text-black font-semibold 
+                                    px-4 py-2 sm:px-6 sm:py-3 
+                                    rounded-full hover:scale-105 transition 
+                                    drop-shadow-[0_6px_18px_rgba(0,0,0,0.3)] 
+                                    w-fit hover:shadow-lg text-sm sm:text-base md:text-lg">
                     {s.btn}
                   </button>
                 </div>
+
               </div>
             </div>
           ))}
