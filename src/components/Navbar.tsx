@@ -168,7 +168,7 @@ export default function Navbar() {
         </div>
 
         {/* Theme toggle */}
-        <button
+        {/* <button
           onClick={() => setTheme(theme === "light" ? "dark" : "light")}
           className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-700"
           aria-label="Toggle theme"
@@ -178,7 +178,21 @@ export default function Navbar() {
           ) : (
             <Sun className="w-5 h-5 dark:text-white text-black" />
           )}
-        </button>
+        </button> */}
+
+         {/* Theme toggle button inside Navbar */}
+            <button
+              onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+              className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600"
+              aria-label="Toggle theme"
+            >
+              {theme === "light" ? (
+                <Moon className="w-5 h-5 text-black dark:text-white" />
+              ) : (
+                <Sun className="w-5 h-5 text-black dark:text-white" />
+              )}
+            </button>
+
 
         {/* Gradient avatar border */}
         <div className="p-[2px] rounded-full bg-gradient-to-r from-purple-400 via-pink-400 to-blue-500">

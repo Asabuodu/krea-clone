@@ -5,7 +5,7 @@ import { ReactNode } from "react";
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+      <body className="bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100">
         {children}
       </body>
     </html>
