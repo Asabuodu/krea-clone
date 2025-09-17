@@ -19,12 +19,14 @@ const tools = [
   {
     name: "Image",
     desc: "Generate images with custom styles like Flux and Ideogram.",
-    icon: ImageIcon,
+    icon: ImageIcon, 
+    bg: "bg-blue-100 dark:bg-blue-900",
     set: "New",
   },
   {
     name: "Video",
     desc: "Generate videos with Haiku, Pika, Runway, Lumalabs and more.",
+    bg: "bg-purple-100 dark:bg-purple-900",
     icon: Video,
   },
   {
@@ -124,10 +126,12 @@ export default function Generate() {
                 transition={{ duration: 0.3 }}
                 className="p-4 border border-gray-200 dark:border-gray-700 rounded-xl bg-white dark:bg-gray-900 hover:shadow-md transition flex items-center justify-between gap-4"
               >
+
                 {/* Left: Icon */}
-                <div className="w-10 h-10 rounded-lg bg-gray-100 dark:bg-gray-800 flex items-center justify-center flex-shrink-0">
-                  <Icon className="w-5 h-5 text-gray-700 dark:text-gray-300" />
-                </div>
+
+                  <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${tool.bg}`}>
+                    <Icon className="w-5 h-5 text-gray-700 dark:text-white" />
+                  </div>
 
                 {/* Middle: Name + Description */}
                 <div className="flex flex-col flex-1 min-w-0">

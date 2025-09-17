@@ -115,7 +115,7 @@ export default function HeroCarousel() {
             slideRefs.current[i] = el;
             }}
 
-              className="slide relative flex-shrink-0 w-[90%] sm:w-[70%] md:w-[60%] lg:w-[800px] rounded-4xl overflow-hidden shadow-lg mx-7 bg-cover bg-center h-[400px] md:h-[600px]"
+              className="slide relative flex-shrink-0 w-[90%] sm:w-[70%] md:w-[80%] lg:w-[900px] rounded-4xl overflow-hidden shadow-lg mx-7 bg-cover bg-center h-[400px] md:h-[600px]"
               style={{ backgroundImage: `url(${s.img})` }}
             >
               {/* overlay */}
