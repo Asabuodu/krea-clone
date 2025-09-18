@@ -106,7 +106,7 @@ export default function HeroCarousel() {
         className="relative w-full max-w-8xl overflow-x-auto scrollbar-hide px-6"
         aria-roledescription="carousel"
       >
-        <div className="flex gap-6 m-auto py-8">
+        <div className="flex gap-6 py-8 justify-center">
           {slides.map((s, i) => (
             <div
               key={s.id}
@@ -115,7 +115,7 @@ export default function HeroCarousel() {
             slideRefs.current[i] = el;
             }}
 
-              className="slide relative flex-shrink-0 w-[90%] sm:w-[70%] md:w-[80%] lg:w-[60%] rounded-4xl overflow-hidden shadow-lg mx-6 bg-cover bg-center h-[480px] md:h-[680px]"
+              className="slide relative flex-shrink-0 w-[90%] sm:w-[70%] md:w-[80%] lg:w-[60%] rounded-4xl overflow-hidden shadow-lg bg-cover bg-center h-[480px] md:h-[680px]"
               style={{ backgroundImage: `url(${s.img})` }}
             >
               {/* overlay */}
