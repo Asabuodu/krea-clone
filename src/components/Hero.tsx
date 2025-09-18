@@ -103,10 +103,10 @@ export default function HeroCarousel() {
       {/* scrolling container */}
       <div
         ref={containerRef}
-        className="relative w-full max-w-8xl overflow-x-auto scrollbar-hide -mx-6 px-6"
+        className="relative w-full max-w-8xl overflow-x-auto scrollbar-hide px-6"
         aria-roledescription="carousel"
       >
-        <div className="flex gap-6 py-8">
+        <div className="flex gap-6 m-auto py-8">
           {slides.map((s, i) => (
             <div
               key={s.id}
@@ -115,14 +115,14 @@ export default function HeroCarousel() {
             slideRefs.current[i] = el;
             }}
 
-              className="slide relative flex-shrink-0 w-[90%] sm:w-[70%] md:w-[80%] lg:w-[60%] rounded-4xl overflow-hidden shadow-lg mx-7 bg-cover bg-center h-[480px] md:h-[680px]"
+              className="slide relative flex-shrink-0 w-[90%] sm:w-[70%] md:w-[80%] lg:w-[60%] rounded-4xl overflow-hidden shadow-lg mx-6 bg-cover bg-center h-[480px] md:h-[680px]"
               style={{ backgroundImage: `url(${s.img})` }}
             >
               {/* overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
 
               {/* content */}
-              <div className="relative z-10 p-6 md:p-12 flex flex-col justify-between h-full">
+              <div className="relative z-10 p-6 md:p-12 flex flex-col  h-full">
 
                 <motion.h2
                   key={s.title}
