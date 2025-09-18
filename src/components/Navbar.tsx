@@ -1,7 +1,9 @@
 // src/components/Navbar.tsx
 "use client";
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+// import Image from "next/image";
+
+// import { motion, AnimatePresence } from "framer-motion";
 import {
   House,
   Image,
@@ -35,34 +37,34 @@ export default function Navbar() {
   const [notifOpen, setNotifOpen] = useState(false);
 
   // Load theme from localStorage or system preference
-  useEffect(() => {
-    const saved = localStorage.getItem("theme") as "light" | "dark" | null;
-    if (saved) {
-      setTheme(saved);
-    } else {
-      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      setTheme(prefersDark ? "dark" : "light");
-    }
-  }, []);
+      useEffect(() => {
+        const saved = localStorage.getItem("theme");
+        if (saved === "light" || saved === "dark") {
+          setTheme(saved);
+        } else {
+          const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+          setTheme(prefersDark ? "dark" : "light");
+        }
+      }, []);
 
-  // Apply theme whenever it changes
-  useEffect(() => {
-    if (!theme) return;
-    const root = document.documentElement;
-    if (theme === "dark") {
-      root.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      root.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
-  }, [theme]);
+      // Apply theme whenever it changes
+      useEffect(() => {
+        if (!theme) return;
+        const root = document.documentElement;
+        if (theme === "dark") {
+          root.classList.add("dark");
+          localStorage.setItem("theme", "dark");
+        } else {
+          root.classList.remove("dark");
+          localStorage.setItem("theme", "light");
+        }
+      }, [theme]);
 
   // Close notifications on outside click
   useEffect(() => {
-    function onDocClick(e: MouseEvent) {
-      const target = e.target as HTMLElement | null;
-      if (!target) return;
+    function onDocClick(e) {
+      const target = e.target;
+      if (!(target instanceof HTMLElement)) return;
       if (!target.closest(".notif-wrapper")) setNotifOpen(false);
     }
     document.addEventListener("click", onDocClick);
@@ -79,9 +81,9 @@ export default function Navbar() {
   
   {/* Left: Logo + Avatar & Username */}
   <div className="flex items-center gap-3 flex-shrink-0">
-    <img src="/assets/logo.png" alt="logo" className="w-9 h-9" />
+    <Image src="/assets/logo.png" alt="logo" className="w-9 h-9" />
     <div className="w-9 h-9 rounded-full overflow-hidden bg-gray-200 dark:bg-gray-700">
-      <img
+      <Image
         src="/assets/profile.jpg"
         alt="avatar"
         className="w-full h-full object-cover"
